@@ -1,0 +1,14 @@
+@mixin LightScheme {
+
+    .Diego {
+        transition: color 300ms, background-color 300ms;
+
+        @include SwitchTheme(DiegoLight);
+
+    }
+
+    .Diego.DarkTheme {
+        @include SwitchTheme(DiegoDark);
+
+    }
+}
