@@ -5,12 +5,12 @@ import App_dos from './App_dos';
 import reportWebVitals from './reportWebVitals';
 
 // styles
-import './styles/main.scss';
+import './styles/design_system/main.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
     <App_dos />
+    {/* <App /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
