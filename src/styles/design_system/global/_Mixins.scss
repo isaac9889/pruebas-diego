@@ -1,0 +1,316 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group MIXINS
+/// This file was created to contain the necessary MIXINS in order to automate the writing of different elements
+////
+
+@mixin responsive-font($min-vw, $max-vw, $min-font-size, $max-font-size, $line-height-min, $line-height-max) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3-c: comparemin($min-font-size);
+    $u4-c: comparemax($max-font-size);
+    $u3: unit($u3-c);
+    $u4: unit($u4-c);
+    $u5: $line-height-min;
+    $u6: $line-height-max;
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+
+        & {
+
+            font-size: var($min-font-size);
+            line-height: txtolh(var(#{$line-height-min}));
+
+            @media screen and (min-width: pxtorem($min-vw)) {
+
+                font-size: min(max(var(#{$min-font-size}), var(#{$min-font-size})), #{var(#{$max-font-size})});
+
+            }
+
+            @media screen and (min-width: pxtorem($max-vw)) {
+
+                font-size: var($max-font-size);
+                line-height: txtolh(var(#{$line-height-max}));
+
+            }
+
+        }
+    }
+
+}
+
+/// The mixins @...Risk are used to set the specific gradients for the numorphic risk buttons.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include LowerRisk;
+///
+///       // The result of this mixin will be: //
+///
+///       background: linear-gradient(45deg, var(--Diego-LowerRisk), var(--Diego-LowerRiskLight));
+///
+///   }
+
+/// This mixins is configured to reset and apply our customs styles for a button
+/// @group MIXINS
+///
+/// @example
+///
+///   .button {
+///
+///       // We call the mixin by @include //
+///
+///       @include Button;
+///
+///       // The result of this mixin will be: //
+///
+///        -webkit-tap-highlight-color: transparent;
+///        position: relative;
+///
+///        &:active {
+///
+///            -webkit-tap-highlight-color: transparent;
+///            opacity: .7;
+///            transform: scale(.97);
+///
+///        }
+///
+///        @include BackgroundTheme;
+///        @include Border;
+///        @include BtnShadow;
+///        @include Focus;
+///        @include Hover;
+///        @include Spacer(padding, all, zero lg);
+///        @include Themer(color, WhiteAbsl);
+///        @include Typer(md);
+///
+///   }
+
+@mixin Button {
+
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+
+    &:active {
+
+        -webkit-tap-highlight-color: transparent;
+        opacity: .7;
+        transform: scale(.97);
+
+    }
+
+    @include Border;
+    @include Shadow;
+    @include Focus;
+    @include Hover;
+    @include Themer(color, WhiteAbsl);
+
+}
+
+/// This mixins is configured to reset and apply our customs styles for a FontSmoothing for the typer engine.
+/// @group MIXINS
+///
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include FontSmoothing;
+///
+///   // The result of this mixin will be: //
+///
+///   text-rendering: optimizeLegibility;
+///   -moz-osx-font-smoothing: grayscale;
+///   font-smoothing: antialiased;
+///   -webkit-font-smoothing: antialiased;
+///   text-shadow: var(--Diego-Black-A1) 0px 0px 1px;
+///
+
+@mixin FontSmoothing {
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: var(--Diego-Black-A1) 0px 0px 1px;
+
+}
+
+/// This mixins is configured to reset and apply our customs styles of a border radius to an element.
+/// @group MIXINS
+///
+/// @param {$TopLeft} $TopLeft [10px] - border-top-left-radius value.
+/// @param {$TopRight} $TopRight [10px] - border-top-right-radius value.
+/// @param {$BottomLeft} $BottomLeft [10px] - border-bottom-left-radius value.
+/// @param {$BottomRight} $BottomRight [10px] - border-bottom-right-radius value.
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Border;
+///
+///       // The result of this mixin will be: //
+///
+///       border-top-left-radius: 10px;
+///       border-top-right-radius: 10px;
+///       border-bottom-right-radius: 10px;
+///       border-bottom-left-radius: 10px;
+///
+///   }
+
+@mixin Border($TopLeft:20px, $TopRight:20px, $BottomLeft:20px, $BottomRight:20px) {
+
+    border-radius: $TopLeft $TopRight $BottomLeft $BottomRight;
+
+}
+
+/// This mixins is configured to reset and apply our customs styles of a text-shadow to a text.
+/// @group MIXINS
+///
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Shadow;
+///
+///       // The result of this mixin will be: //
+///
+///       text-shadow: var(--Diego-Shadows) 1px 1px 10px;
+///
+///   }
+
+@mixin Shadow {
+
+    @include Themer(box-shadow, Selected-A20, "3px 3px 6px .16px");
+
+}
+
+@mixin CardShadow {
+
+    @include Themer(box-shadow, Bubble-A60, "4px 5px 6px 1px");
+
+}
+
+/// This mixins is configured to reset and apply our TreeButton customs styles to a button.
+/// @group MIXINS
+///
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include TreeButton;
+///
+///       // The result of this mixin will be: //
+///
+///       border-radius: 2px;
+///       cursor: pointer;
+///       height: 20px;
+///       width: 20px;
+///
+///   }
+
+@mixin Focus {
+
+    &:focus {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+
+    }
+}
+
+/// This mixins is configured to reset and apply our Hover customs styles to a element.
+/// @group MIXINS
+/// @param {transition-duration} $HTDuration [.5s] - This value determine the speed of which the hover effect will be shown, when we have to apply this value to a button, this value will have to be .3s
+/// @param {opacity} $HOpacity [.7] - This value determine the opacity that will be applied to the element when the Hover is activated
+/// @param {box-shadow} $HShadow [null] - This value determine if the default box-shadow property is applied to the Element when the Hover is activated, to perform this action we have to assign a value to the shadow property
+/// @param {text-decoration} $HDecoration [none] - This value determine if some value is applied to the text-decoration property when the Hover is activated
+/// @param {color} $HColor [null] - This value applies the color of the interaction at the moment that the Hover is applied, this property only admits values from our color palette
+/// @example
+///
+///   .item {
+///
+///       transition: opacity .7s;
+///
+///       //  We call the mixing by @include and assign it the desired values //
+///
+///       @include Hover(.7s, .5, shadow, underline, Color-3);
+///
+///       // The result of this mixin will be: //
+///
+///       &:hover {
+///
+///           opacity: .5;
+///           box-shadow: 0px 0px 20px #000000;
+///           text-decoration: underline;
+///           color: #E3E3E3;
+///
+///       }
+///   }
+
+@mixin Hover ($HTDuration:.5s, $HOpacity: .7, $HShadow:null, $HDecoration:none, $HColor:null, $HBackground:null, $HTProperty:opacity) {
+    @include Transition($TDuration:$HTDuration, $TProperty:$HTProperty);
+
+    cursor: pointer;
+
+    &:hover {
+
+        opacity: $HOpacity;
+
+        @if $HShadow == shadow {
+            @include Themer(box-shadow, Black, '0px 0px 20px');
+        }
+
+        text-decoration: $HDecoration;
+
+        @if $HColor != null {
+            @include Themer(color, $HColor);
+        }
+
+        @if $HBackground != null {
+            @include Themer(background, $HBackground);
+        }
+
+    }
+}
+
+/// This mixins is configured to reset and apply our Transition customs styles to a element.
+/// @group MIXINS
+/// @param {$TProperty} $TProperty [opacity] - Opacity value for the transition property.
+/// @param {$TDuration} $TDuration [.5s] - Duration value for the transition property.
+/// @param {$TTiming} $TTiming [ease] - Timing value for the transition property.
+/// @param {$TDelay} $TDelay [0s] - Delay value for the transition property.
+/// @param {$Extras} $Extras [null] - Extras values for the transition property.
+///
+/// The mixins Transition are used to set the transition properties for the hover mixin.
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Transition;
+///
+///       // The result of this mixin will be: //
+///
+///           transition: opacity 0.5s ease 0s;
+///
+///   }
+
+@mixin Transition ($TProperty:opacity, $TDuration:.5s, $TTiming:ease, $TDelay:0s, $Extras:null) {
+
+    transition: $TProperty $TDuration $TTiming $TDelay, $Extras;
+
+}
