@@ -151,6 +151,18 @@
 
 }
 
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(../fonts/fa-brands-400.ttf);
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400; }
+
 .fad::before {
     position: absolute;
     color: var(--fa-primary-color, inherit);
@@ -841,5 +853,10 @@
 
 .fa-facebook::before {
     content: "\f09a";
+
+}
+
+.fa-linkedin::before {
+    content: "\f08c";
 
 }

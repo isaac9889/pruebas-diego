@@ -16,6 +16,7 @@ function App_dos() {
                   </ul>
               </nav>
           </header>
+          <i className="fab fa-linkedin"></i>
           <section className="AppDos__Contenedor2">
               <div className="AppDos__Caja2">
                 <h1>Articulo 1...</h1>
