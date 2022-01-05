@@ -7,23 +7,25 @@ function App_dos() {
               <div className="AppDos__CajaInt-imagen2">
                 <img src="../logo.png" className="imagen1" alt="logo"></img>
 
-                <nav className="AppDos__Menu">
-                    <a className="Opcmenu" href="index.html">Inicio</a>
-                    <a className="Opcmenu" href="/">Opcion 1</a>
-                    <a className="Opcmenu" href="/">Opcion 2</a>
-                    <a className="Opcmenu" href="/">Opcion 3</a>
-                </nav>
+                <div className="AppDos__HeaderContenedor">
+                  <nav className="AppDos__Menu">
+                      <a className="Opcmenu" href="index.html">Inicio</a>
+                      <a className="Opcmenu" href="/">Opcion 1</a>
+                      <a className="Opcmenu" href="/">Opcion 2</a>
+                      <a className="Opcmenu" href="/">Opcion 3</a>
+                  </nav>
 
-                <div className="Iconos">
-                  <div className="IconosRedes">
-                    <em className="fas fa-apple-alt" />
-                  </div>
-                  <div className="IconosRedes">
-                    <em className="fab fa-linkedin" />
-                  </div>
-                  <div className="IconosRedes">
-                    <em className="fas fa-archive" />
-                  </div>
+                  <div className="Iconos">
+                    <div className="IconosRedes">
+                      <em className="fas fa-apple-alt" />
+                    </div>
+                    <div className="IconosRedes">
+                      <em className="fab fa-linkedin" />
+                    </div>
+                    <div className="IconosRedes">
+                      <em className="fas fa-archive" />
+                    </div>
+                </div>
                 </div>
 
 
@@ -54,8 +56,14 @@ function App_dos() {
           </div>
 
 
-          <footer>
-             <p>Ejemplo1 &copy;Todos los derechos reservados 2021</p>
+          <footer className="AppDos__Contenedor4">
+             <div className="AppDos__CajaInt-imagen2">
+                <img src="../logo.png" className="imagen1" alt="logo"></img>
+             </div>
+             <p className="AppDos__Pie">Ejemplo1 &copy;Todos los derechos reservados 2021</p>
+             <div className="AppDos__CajaInt-imagen2">
+                <img src="../logo.png" className="imagen1" alt="logo"></img>
+             </div>
           </footer>
 
 

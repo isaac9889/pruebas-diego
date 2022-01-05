@@ -1,0 +1,56 @@
+%CajasSec1 {
+
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: auto;
+  justify-content: space-between;
+  max-width: 30vw;
+
+}
+
+%AppDos {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1em;
+background: #ececec;
+
+
+  &__Contenedor {
+
+     width: -moz-available;
+     display: flex;
+     justify-content: flex-start;
+     max-width: 860px;
+     flex-direction: column;
+
+   }
+
+   &__CajaInt-imagen2 {
+
+     display: flex;
+     max-width: 100vw;
+     height: 67px;
+     width: -webkit-fill-available;
+     width: -moz-available;
+     align-items: center;
+
+   }
+
+   &__Menu {
+
+       max-width: 100vw;
+       height: 100%;
+       display: flex;
+       width: -webkit-fill-available;
+       width: -moz-available;
+       gap: 20px;
+       align-items: center;
+       margin-left: auto;
+
+   }
+
+}
