@@ -7,12 +7,6 @@ gap: 1em;
 background: #ececec;
 
 
-@media(max-width:320px){
-  flex-direction: column;
-  align-items: center;
-   }
-
-
   &__Contenedor {
     @extend %AppDos__Contenedor;
      }
@@ -79,13 +73,24 @@ background: #ececec;
 
 
 .AppDos__Contenedor2 {
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 64px;
   justify-content: center;
   max-width: 860px;
-  gap: 64px;
   width: -webkit-fill-available;
   width: -moz-available;
+
+  // Recuerda que si utilizas min-width le estás diciendo que todo lo inferior al valor que pones
+  // en este caso 1024px va a ser lo que se va a pintar de 0px a 1024px, y todo lo que esté dentro
+  // del media query se va a pintar de 1025px para arriba, de tal forma que como sólo quieres cambiar
+  // la dirección en pantallas grandes por eso solo modificas el flex-direction
+
+  @media screen and (min-width:1024px){
+    flex-direction: row;
+
+  }
 }
 
 .AppDos__Caja2 {
