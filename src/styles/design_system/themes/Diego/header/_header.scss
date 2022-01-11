@@ -7,9 +7,9 @@ gap: 1em;
 background: #ececec;
 
 
-  &__Contenedor {
-    @extend %AppDos__Contenedor;
-         }
+    &__Contenedor {
+        @extend %AppDos__Contenedor;
+    }
 
 
 
@@ -17,11 +17,17 @@ background: #ececec;
 
      display: flex;
      max-width: 100vw;
-     height: 67px;
+     height: auto;
      width: -webkit-fill-available;
      width: -moz-available;
      align-items: center;
      justify-content: space-between;
+     flex-direction: column;
+
+     @media screen and (min-width:1024px) {
+       flex-direction: row;
+       height: 67px;
+     }
 
    }
 
@@ -44,6 +50,11 @@ background: #ececec;
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-direction: column;
+
+  @media screen and (min-width:1024px) {
+    flex-direction: row;
+  }
 
 }
 
@@ -61,7 +72,13 @@ background: #ececec;
     width: auto;
     gap: 20px;
     align-items: center;
-    margin-left: auto;
+    margin: 0;
+
+    @media screen and (min-width:1024px) {
+
+        margin-left: auto;
+
+    }
 }
 
 .IconosRedes {
@@ -110,21 +127,22 @@ background: #ececec;
   display: flex;
   align-items: center;
   max-width: 860px;
-  flex-direction: row;
+  flex-direction: column;
   width: -webkit-fill-available;
   width: -moz-available;
   gap: 20px;
+
+  @media screen and (min-width:1024px){
+      flex-direction: row;
+  }
 
   .AppDos__Caja4{
     display: flex;
     max-width: 100vw;
     height: 100%;
+    justify-content: center;
     width: -webkit-fill-available;
     width: -moz-available;
-
-    @media screen and (min-width:1024px){
-        flex-direction: column;
-    }
   }
 
   .AppDos__Caja5{
@@ -134,10 +152,10 @@ background: #ececec;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-
-    @media screen and (min-width:1024px){
-        flex-direction: column;
-    }
+    // Se utilizó esta medida porque blac.....
+    max-width: 50vw;
+    width: -webkit-fill-available;
+    width: -webkit-fill-available;
   }
 
 
@@ -151,7 +169,7 @@ background: #ececec;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-width: 860px;
+    max-width: 860px;
     width: -webkit-fill-available;
     width: -moz-available;
 
@@ -175,11 +193,6 @@ background: #ececec;
   max-width: 200px;
   width: 100%;
 }
-
-
-
-
-
 
 /*@mixin Cajas{
   display: flex;
